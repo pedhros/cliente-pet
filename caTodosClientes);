@@ -1,0 +1,59 @@
+[1mdiff --git a/src/main/java/br/com/petz/clientepet/cliente/application/api/ClienteController.java b/src/main/java/br/com/petz/clientepet/cliente/application/api/ClienteController.java[m
+[1mindex fb3aa7e..59acd39 100644[m
+[1m--- a/src/main/java/br/com/petz/clientepet/cliente/application/api/ClienteController.java[m
+[1m+++ b/src/main/java/br/com/petz/clientepet/cliente/application/api/ClienteController.java[m
+[36m@@ -25,7 +25,8 @@[m [mpublic class ClienteController implements ClienteAPI {[m
+ 	@Override[m
+ 	public List<ClienteListResponse> getTodosClientes() {[m
+ 		log.info("[inicia] ClienteController - getTodosClientes");[m
+[32m+[m		[32mList<ClienteListResponse> clientes = clienteService.buscaTodosClientes();[m
+ 		log.info("[finaliza] ClienteController - getTodosClientes");[m
+[31m-		return null;[m
+[32m+[m		[32mreturn clientes;[m
+ 	}[m
+ }[m
+[1mdiff --git a/src/main/java/br/com/petz/clientepet/cliente/application/service/ClienteApplicationService.java b/src/main/java/br/com/petz/clientepet/cliente/application/service/ClienteApplicationService.java[m
+[1mindex 3aa040a..0ed7d58 100644[m
+[1m--- a/src/main/java/br/com/petz/clientepet/cliente/application/service/ClienteApplicationService.java[m
+[1m+++ b/src/main/java/br/com/petz/clientepet/cliente/application/service/ClienteApplicationService.java[m
+[36m@@ -1,8 +1,10 @@[m
+ package br.com.petz.clientepet.cliente.application.service;[m
+ [m
+[31m-import org.springframework.stereotype.Service;[m
+[32m+[m[32mimport java.util.List;[m
+ [m
+[32m+[m[32mimport org.springframework.stereotype.Service;[m
+ [m
+[32m+[m[32mimport br.com.petz.clientepet.cliente.application.api.ClienteListResponse;[m
+ import br.com.petz.clientepet.cliente.application.api.ClienteRequest;[m
+ import br.com.petz.clientepet.cliente.application.api.ClienteResponse;[m
+ import br.com.petz.clientepet.cliente.application.repository.ClienteRepository;[m
+[36m@@ -24,4 +26,10 @@[m [mpublic class ClienteApplicationService implements ClienteService {[m
+ 				.idCliente(cliente.getIdCliente())[m
+ 				.build();[m
+ 	}[m
+[32m+[m	[32m@Override[m
+[32m+[m	[32mpublic List<ClienteListResponse> buscaTodosClientes() {[m
+[32m+[m		[32mlog.info("[inicia] ClienteApplicationService -  buscaTodosClientes");[m
+[32m+[m		[32mlog.info("[finaliza] ClienteApplicationService -  buscaTodosClientes");[m
+[32m+[m		[32mreturn null;[m
+[32m+[m	[32m}[m
+ }[m
+[1mdiff --git a/src/main/java/br/com/petz/clientepet/cliente/application/service/ClienteService.java b/src/main/java/br/com/petz/clientepet/cliente/application/service/ClienteService.java[m
+[1mindex 0a8f641..c2e1e8b 100644[m
+[1m--- a/src/main/java/br/com/petz/clientepet/cliente/application/service/ClienteService.java[m
+[1m+++ b/src/main/java/br/com/petz/clientepet/cliente/application/service/ClienteService.java[m
+[36m@@ -1,9 +1,12 @@[m
+ package br.com.petz.clientepet.cliente.application.service;[m
+ [m
+[32m+[m[32mimport java.util.List;[m
+[32m+[m
+[32m+[m[32mimport br.com.petz.clientepet.cliente.application.api.ClienteListResponse;[m
+ import br.com.petz.clientepet.cliente.application.api.ClienteRequest;[m
+ import br.com.petz.clientepet.cliente.application.api.ClienteResponse;[m
+ [m
+ public interface ClienteService {[m
+[31m-[m
+ 	ClienteResponse criaCliente(ClienteRequest clienteRequest);[m
+[32m+[m	[32mList<ClienteListResponse> buscaTodosClientes();[m
+ }[m
