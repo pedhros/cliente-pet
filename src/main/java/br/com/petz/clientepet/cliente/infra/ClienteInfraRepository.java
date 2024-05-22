@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import br.com.petz.clientepet.cliente.application.repository.ClienteRepository;
 import br.com.petz.clientepet.cliente.domain.Cliente;
-import ch.qos.logback.classic.selector.servlet.LoggerContextFilter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
