@@ -1,0 +1,22 @@
+{"properties": [
+  {
+    "name": "spring.datasource.h2",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.h2'"
+  },
+  {
+    "name": "spring.datasource.console",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.console'"
+  },
+  {
+    "name": "spring.datasource.enabled",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.enabled'"
+  },
+  {
+    "name": "spring.datasource.path",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.path'"
+  }
+]}
