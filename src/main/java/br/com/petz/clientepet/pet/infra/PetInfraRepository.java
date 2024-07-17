@@ -29,7 +29,7 @@ public class PetInfraRepository implements PetRepository {
 		log.info("[start] PetInfraRepository - buscaPetsDoClienteComId");
 		var pets = petSpringDataJPARespository.findByIdClienteTutor(idCliente);
 		log.info("[finish] PetInfraRepository - buscaPetsDoClienteComId");
-		return null;
+		return pets;
 	}
 
 }
